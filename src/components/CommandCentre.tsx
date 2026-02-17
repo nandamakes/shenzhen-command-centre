@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './CommandCentre.css';
 
-type Section = 'overview' | 'payments' | 'vpn' | 'banking' | 'transport' | 'restaurants' | 'culture' | 'contingency';
+type Section = 'overview' | 'payments' | 'vpn' | 'banking' | 'transport' | 'restaurants' | 'culture' | 'tickets' | 'contingency';
 
 export function CommandCentre() {
   const [activeSection, setActiveSection] = useState<Section>('overview');
@@ -21,6 +21,7 @@ export function CommandCentre() {
     { id: 'transport', label: 'Transportasi', icon: '🚇' },
     { id: 'restaurants', label: 'Restoran', icon: '🍽️' },
     { id: 'culture', label: 'Budaya', icon: '🏯' },
+    { id: 'tickets', label: 'Tiket & Booking', icon: '🎟️' },
     { id: 'contingency', label: 'Darurat', icon: '⚠️' },
   ];
 
@@ -40,6 +41,8 @@ export function CommandCentre() {
         return <RestaurantsSection expandedCollapsibles={expandedCollapsibles} toggleCollapsible={toggleCollapsible} />;
       case 'culture':
         return <CultureSection />;
+      case 'tickets':
+        return <TicketsSection />;
       case 'contingency':
         return <ContingencySection />;
       default:
@@ -50,7 +53,7 @@ export function CommandCentre() {
   return (
     <div className="command-centre">
       <header className="cc-header">
-        <h1>Panduan Operasional Shenzhen</h1>
+        <h1>Panduan Operasional Shenzhen — Keluarga Makes</h1>
         <p>8–15 Maret 2026</p>
       </header>
 
@@ -506,6 +509,89 @@ function CultureSection() {
   );
 }
 
+function TicketsSection() {
+  return (
+    <section className="cc-section">
+      <h2>Tiket &amp; Reservasi</h2>
+
+      <h3>Reservasi Restoran (PRIORITAS TINGGI!)</h3>
+      <div className="warning">
+        <strong>Buku sekarang via Meituan!</strong> Restoran terbaik penuh 1-2 minggu sebelum kunjungan.
+      </div>
+
+      <div className="cards-grid">
+        <div className="info-card">
+          <h4>十贯 JYUKAN</h4>
+          <p>Omakase sushi, ¥298/orang<br/>Hari 3 (Mar 10)<br/>Tiba 10:45am</p>
+        </div>
+        <div className="info-card">
+          <h4>大鴿飯 Roasted Pigeon</h4>
+          <p>Michelin roasted pigeon<br/>Hari 7 (Mar 14)<br/>Tiba sebelum jam 11</p>
+        </div>
+        <div className="info-card">
+          <h4>Yun Jing (Raffles)</h4>
+          <p>Fine dining skyline ¥800+<br/>Hari 4 (Mar 11)<br/>Sunset (terbaik!)</p>
+        </div>
+        <div className="info-card">
+          <h4>ENSUE (3-Michelin)</h4>
+          <p>Chef Kostow, ¥1500+<br/>Hari 6 (Mar 13)<br/>Opsional premium</p>
+        </div>
+      </div>
+
+      <h3>Aplikasi untuk Booking</h3>
+      <div className="step">
+        <h4>Meituan (PRIMARY)</h4>
+        <p>Open app → Search restoran → Click "预订" (booking) → Pilih jam/orang → Kirim request → Tunggu konfirmasi SMS</p>
+      </div>
+
+      <div className="step">
+        <h4>WeChat Official Accounts</h4>
+        <p>Follow restoran favorit di WeChat → Click "预约" → Book langsung</p>
+      </div>
+
+      <h3>Tiket Atraksi</h3>
+      <table className="comparison">
+        <tr>
+          <td><strong>Shenzhen Pet Fair</strong></td>
+          <td>Mar 12-15</td>
+          <td className="highlight">Pre-book via Damai (Tencent)</td>
+        </tr>
+        <tr>
+          <td><strong>Window of the World</strong></td>
+          <td>Theme park, ¥160</td>
+          <td className="highlight">Meituan atau at gate</td>
+        </tr>
+        <tr>
+          <td><strong>OCT Loft</strong></td>
+          <td>Art district, FREE</td>
+          <td className="highlight">Walk-in</td>
+        </tr>
+        <tr>
+          <td><strong>Konser/Events</strong></td>
+          <td>F4, Jessie J, Jolin</td>
+          <td className="highlight">Damai atau Meituan</td>
+        </tr>
+      </table>
+
+      <h3>QR Codes untuk Penyimpanan</h3>
+      <div className="info-box">
+        <p>Buat folder di telepon: 📱 Screenshots → "Shenzhen Bookings"<br/>Simpan screenshot QR code konfirmasi. Tidak perlu internet untuk show ke staff.</p>
+      </div>
+
+      <h3>Checklist Booking</h3>
+      <ul className="bullet-list">
+        <li>☐ JYUKAN omakase (Hari 3, 10:45am)</li>
+        <li>☐ Yun Jing dinner (Hari 4, sunset)</li>
+        <li>☐ Restoran fine dining backup (Hari 6)</li>
+        <li>☐ Roasted pigeon (Hari 7, before 11am)</li>
+        <li>☐ Pet Fair tickets (Mar 12-15)</li>
+        <li>☐ Konser/events yang diminati</li>
+        <li>☐ Screencap semua QR codes</li>
+      </ul>
+    </section>
+  );
+}
+
 function ContingencySection() {
   return (
     <section className="cc-section">
@@ -540,7 +626,7 @@ function ContingencySection() {
 
       <div className="step">
         <h4>Jika Sakit</h4>
-        <p>1. Hubungi concierge 2. Mereka atur dokter/rumah sakit 3. Mereka mungkin menemani 4. Simpan bon untuk klaim asuransi</p>
+        <p>1. Hubungi concierge 2. Mereka atur dokter/rumah sakit 3. Mereka mungkin metemani 4. Simpan bon untuk klaim asuransi</p>
       </div>
 
       <h3>Hilang Kartu/Uang</h3>
