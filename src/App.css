@@ -1,8 +1,31 @@
 .app {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding: 20px;
+  background: #1a1a2e;
 }
+
+.app-switcher {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  background: #0f0f1e;
+  border-bottom: 2px solid #e91e63;
+}
+
+.app-switcher button {
+  background: transparent;
+  border: 1px solid #444;
+  color: #aaa;
+  padding: 8px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+
+.app-switcher button:hover { border-color: #e91e63; color: #fff; }
+.app-switcher button.active { background: #e91e63; border-color: #e91e63; color: #fff; }
 
 * {
   margin: 0;
